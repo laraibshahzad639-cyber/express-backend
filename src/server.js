@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 import router from "./routes/books.routes.js";
 
-import { errorHandler } from "./middleware/ErrorHandler.midleware.js";
+import { errorHandler, errorHandlerNotFound } from "./middleware/ErrorHandler.midleware.js";
 
 dotenv.config();
 
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use("/books", router);
 
 app.use(errorHandler);
-
+app.use(errorHandlerNotFound);
 app.listen(PORT, () => {
     console.log(`server listen on port ${PORT}`);
 });
