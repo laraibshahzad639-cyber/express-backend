@@ -40,10 +40,7 @@ export function getbooksbyid(req, res) {
   }
 
   return sendSuccess(
-    res,
-    200,
-    "Book fetched successfully by id",
-    book
+    res, 200, "Book fetched successfully by id",  book
   );
 }
 

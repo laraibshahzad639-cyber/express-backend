@@ -14,9 +14,10 @@ const app = express();
 app.use(express.json());
 
 app.use("/books", router);
+app.use(errorHandlerNotFound);
 
 app.use(errorHandler);
-app.use(errorHandlerNotFound);
+
 app.listen(PORT, () => {
     console.log(`server listen on port ${PORT}`);
 });
