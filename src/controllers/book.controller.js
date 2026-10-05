@@ -23,12 +23,7 @@ export function getbooksc(req, res) {
     });
   }
 
-  res.status(200).json({
-    status: true,
-    message: "Books fetched successfully",
-    count: result.length,
-    books: result,
-  });
+  sendSuccess(res, 200, "Book fetched successfully.!", result);
 }
 
 export function getbooksbyid(req, res) {
