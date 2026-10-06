@@ -59,3 +59,17 @@ export function searchbook(req, res, next) {
     next(error);
   }
 }
+export function  queryBookMethod(req,res,next){
+  try{
+    const {author ,category ,price,color}=req.body;
+    const result=fbookquery(author,category,price,color);
+    if (result.length===0){
+      return sendError(res,404,"Books not found")
+    }
+    return sendSuccess(res,200,"Books Fetched Sucessfully using Query Method ",result)
+  }
+  catch(error){
+    next(error);
+  }
+  
+}

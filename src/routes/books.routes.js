@@ -3,7 +3,8 @@ import express from "express";
 import {
     getbooksc,
     getbooksbyid,
-    searchbook
+    searchbook,
+    queryBookMethod
 } from "../controllers/book.controller.js";
 
 import { authMiddleware } from "../middleware/Authenticate.middleware.js";
@@ -11,6 +12,7 @@ import { authMiddleware } from "../middleware/Authenticate.middleware.js";
 const router = express.Router();
 
 router.get("/", authMiddleware, getbooksc);
+router.query("/query",queryBookMethod );
 
 router.post("/search", searchbook);
 
